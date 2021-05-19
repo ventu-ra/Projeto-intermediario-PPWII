@@ -29,19 +29,21 @@ router.get('/', function(req, res){
                 "link": URLprincipal + clube['_rawAttrs']['href'],
                 "timestamp": Date.now()
             }
-            
+
             if(consulta == clubes.time){
                 timeFiltrado.push(clubes)
-                res.json(timeFiltrado)
             } else{
                 times.push(clubes)
             }
-            /*if(clubes.time.toUpperCase().includes(consulta.toUpperCase())){
-                times.push(clubes)
-            }*/
+
         })
         //entrega a resposta com a lista dos times em formato JSON
-        res.json(times)
+        //Se não houver time filtrado valido na query string retorna a lista com todos os times
+        if(timeFiltrado == ""){
+            res.json(times)
+        }else{
+            res.json(timeFiltrado)
+        }
     })
 })
 
