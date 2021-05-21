@@ -20,15 +20,15 @@
 ### API criada para gerar uma listagem com os clubes de futebol que disputaram a UEFA Champions League ou a UEFA Euro League da temporada atual. Esta aplicação está extraindo dados do site https://pt.uefa.com/ foi utilizado o método Scrapper para extrair os dados de tags especificas do site. Foi desenvolvido dois end points para gerar esta listagem em formato JSON.
 ---
 ## End Points ✔
-- End Point ➡ /api/champions
+- /api/champions
     - Esta gera os clubes que disputaram a champions league
-- End Point ➡ /api/euro
+- /api/euro
     - Esta gera os clubes que disputaram a europa league
-- End Point ➡ /api/info
+- /api/info
     - Esta gera em JSON os dados do autor da aplicação
 
 ### Ao final destes end points de extração de dados foi desenvolvido uma query String para que possa ser filtrado por nome do Time.
-- Exemplo ➡ /api/champions?consulta=nome do time   obs: Nome do time deve ser escrito exatamente como está no site.
+- Exemplo ➡ /api/champions?consulta='nome do time' <br>Obs: Nome do time deve ser escrito exatamente como está no site.
     - Este filtro retorna um novo vetor com o objeto JSON contendo os dados do time filtrado
 ---
 ## 💻 Tecnologias
