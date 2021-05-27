@@ -9,9 +9,10 @@ app.get('/', function(req, res){
 
 app.use('/api', router)
 
-/*app.get('*', function(req, res){
-    res.redirect('https://pt.uefa.com/uefachampionsleague/clubs/')
-})*/
+app.get('*', function(req, res){
+    //Rota que redireciona caso seja informado um end point que não exista
+    res.redirect('https://pt.uefa.com/')
+})
 
 app.listen(PORT, function(){
     console.log("Servidor iniciado")
