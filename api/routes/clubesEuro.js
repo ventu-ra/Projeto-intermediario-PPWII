@@ -7,7 +7,6 @@ router.get('/', function(req, res){
     // query string
     const consulta = req.query.consulta
    
-    //var timeFiltrado = []
     var times = []
     const URLprincipal = "https://pt.uefa.com"
     const URL = "https://pt.uefa.com/uefaeuropaleague/clubs/"
@@ -27,12 +26,9 @@ router.get('/', function(req, res){
                 "link": URLprincipal + clube['_rawAttrs']['href'],
                 "timestamp": Date.now()
             }
-            if(consulta == clubes.time){
-                timeFiltrado.push(clubes)
-            } else{
-                times.push(clubes)
-            } 
+            times.push(clubes)
         })
+        
         if (consulta) {
             const list = times.filter(tim => tim.time.toLowerCase().includes(consulta.toLowerCase()))
             if (list) {
@@ -40,14 +36,6 @@ router.get('/', function(req, res){
             }
         }
         res.json(times)
-        /*
-        //entrega a resposta com a lista dos times em formato JSON
-        //Se não houver time filtrado valido na query string retorna a lista com todos os times
-        if(timeFiltrado == ""){
-            res.json(times)
-        }else{
-            res.json(timeFiltrado)
-        }*/
     })
 })
 
