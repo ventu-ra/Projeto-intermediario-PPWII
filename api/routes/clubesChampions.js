@@ -16,7 +16,7 @@ router.get("/", function (req, res) {
     var root = parser(resposta.data);
     const divClubes = root.querySelectorAll(".team-wrap");
     const divSigla = root.querySelectorAll(".team-name__country-code");
-    const clubLog = root.querySelectorAll('.club-logo')
+    // const clubLog = root.querySelectorAll('.club-logo')
 
     // let arrClubLog = clubLog["attrs"]["data-srcset"]
     // arrClubLog.split(',')
@@ -27,7 +27,7 @@ router.get("/", function (req, res) {
         time: clube["attrs"]["title"],
         país: divSigla[sigla].textContent,
         link: URLprincipal + clube["_rawAttrs"]["href"],
-        logo: clubLog[log]["attrs"]["data-srcset"],
+    
         timestamp: Date.now(),
       };
       times.push(clubes);
